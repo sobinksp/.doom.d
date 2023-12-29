@@ -36,12 +36,16 @@
 ;; (setq doom-theme 'doom-henna)
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
+
+
+;; Global Settings
 (setq
  doom-theme 'doom-henna
  display-line-numbers-type t
  evil-default-cursor 'box
  evil-insert-state-cursor 'box
-)
+ web-mode-enable-auto-closing t
+ )
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/org/")
@@ -53,14 +57,15 @@
   (setq
    projectile-project-search-path '("E:\\Programming\\")
    doom-font (font-spec :family "JetBrainsMono NF" :size 16)
+   )
   )
-)
 ;; SETTINGS FOR MAC
 (when (eq system-type 'darwin) ; mac
   (setq
+   projectile-project-search-path '("~/projects")
    doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 16)
+   )
   )
-)
 
 ;; Open doom emacs start in maximized window
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
