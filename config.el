@@ -39,13 +39,24 @@
 
 
 ;; Global Settings
+;;doom-theme 'doom-henna
+;; doom-theme 'naysayer
 (setq
- doom-theme 'doom-henna
+ doom-theme 'doom-gruvbox
  display-line-numbers-type t
- evil-default-cursor 'box
- evil-insert-state-cursor 'box
- web-mode-enable-auto-closing t
- )
+ ;; web-mode-enable-auto-closing t
+ web-mode-enable-auto-pairing t
+ web-mode-enable-css-colorization t)
+
+;; (setq evil-normal-state-cursor '(box "#e82c25")
+;; evil-insert-state-cursor '(box "#94e825"))
+;;(setq ;;evil-default-cursor '(box "#e82c25")
+
+(after! lsp-mode
+  (setq lsp-modeline-diagnostics-mode :project) ; Display diagnostics for the entire project
+  (setq lsp-diagnostics-provider :auto)          ; Use the LSP server's diagnostics
+  (setq lsp-enable-file-watchers t))            ; Enable file watchers for real-time diagnostics
+
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/org/")
