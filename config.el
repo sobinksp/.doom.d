@@ -36,51 +36,6 @@
 ;; (setq doom-theme 'doom-henna)
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
-
-
-;; Global Settings
-;;doom-theme 'doom-henna
-;; doom-theme 'naysayer
-(setq
- doom-theme 'doom-gruvbox
- display-line-numbers-type t
- ;; web-mode-enable-auto-closing t
- web-mode-enable-auto-pairing t
- web-mode-enable-css-colorization t)
-
-;; (setq evil-normal-state-cursor '(box "#e82c25")
-;; evil-insert-state-cursor '(box "#94e825"))
-;;(setq ;;evil-default-cursor '(box "#e82c25")
-
-(after! lsp-mode
-  (setq lsp-modeline-diagnostics-mode :project) ; Display diagnostics for the entire project
-  (setq lsp-diagnostics-provider :auto)          ; Use the LSP server's diagnostics
-  (setq lsp-enable-file-watchers t))            ; Enable file watchers for real-time diagnostics
-
-;; If you use `org' and don't want your org files in the default location below,
-;; change `org-directory'. It must be set before org loads!
-(setq org-directory "~/org/")
-
-;; SETTINGS FOR WINDOWS
-(when (eq system-type 'windows-nt)  ; windows
-  (setenv "PATH" (concat (getenv "PATH") ";C:\\Users\\tarny\\.cargo\\bin"))
-  (setenv "PATH" (concat (getenv "PATH") ";C:\\MinGW\\bin"))
-  (setq
-   projectile-project-search-path '("E:\\Programming\\")
-   doom-font (font-spec :family "JetBrainsMono NF" :size 16)
-   )
-  )
-;; SETTINGS FOR MAC
-(when (eq system-type 'darwin) ; mac
-  (setq
-   projectile-project-search-path '("~/projects")
-   doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 16)
-   )
-  )
-
-;; Open doom emacs start in maximized window
-(add-to-list 'default-frame-alist '(fullscreen . maximized))
-
 ;; (add-hook 'window-setup-hook #'toggle-frame-fullscreen)
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
@@ -113,3 +68,38 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+
+;; Global settings
+(setq
+ doom-theme 'doom-gruvbox
+ display-line-numbers-type t ;; line number
+ web-mode-enable-auto-pairing t ;; auto paring html tag
+ web-mode-enable-css-colorization t)
+
+(after! lsp-mode
+  (setq lsp-modeline-diagnostics-mode :project) ; Display diagnostics for the entire project
+  (setq lsp-diagnostics-provider :auto)          ; Use the LSP server's diagnostics
+  (setq lsp-enable-file-watchers t))            ; Enable file watchers for real-time diagnostics
+
+;; If you use `org' and don't want your org files in the default location below,
+;; change `org-directory'. It must be set before org loads!
+(setq org-directory "~/org/")
+
+;; SETTINGS FOR WINDOWS
+(when (eq system-type 'windows-nt)  ; windows
+  (setenv "PATH" (concat (getenv "PATH") ";C:\\Users\\tarny\\.cargo\\bin" ";C:\\MinGW\\bin"))
+  (setq
+   projectile-project-search-path '("E:\\Programming\\")
+   doom-font (font-spec :family "JetBrainsMono NF" :size 16)
+   )
+  )
+;; SETTINGS FOR MAC
+(when (eq system-type 'darwin) ; mac
+  (setq
+   projectile-project-search-path '("~/projects")
+   doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 16)
+   )
+  )
+
+;; Open doom emacs start in maximized window
+(add-to-list 'default-frame-alist '(fullscreen . maximized))
