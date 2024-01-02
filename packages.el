@@ -51,3 +51,4 @@
 (package! prettier-js)
 (package! apheleia)
 (package! naysayer-theme)
+(package! hemisu-theme)

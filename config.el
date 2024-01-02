@@ -70,16 +70,37 @@
 ;; they are implemented.
 
 ;; Global settings
+
+;; ui
 (setq
  doom-theme 'doom-gruvbox
- display-line-numbers-type t ;; line number
- web-mode-enable-auto-pairing t ;; auto paring html tag
- web-mode-enable-css-colorization t)
+ display-line-numbers-type nil ;; line number
+ )
+;; Open doom emacs start in maximized window
+(add-to-list 'default-frame-alist '(fullscreen . maximized))
 
+;; modeline
+(setq doom-modeline-modal nil)
+
+;; indentation
+(setq-default tab-width 4)
+;; (setq evil-shift-width 4)
+
+;; web
+(setq web-mode-enable-auto-pairing t
+      web-mode-enable-css-colorization t
+      )
+
+;; LSP
 (after! lsp-mode
-  (setq lsp-modeline-diagnostics-mode :project) ; Display diagnostics for the entire project
-  (setq lsp-diagnostics-provider :auto)          ; Use the LSP server's diagnostics
-  (setq lsp-enable-file-watchers t))            ; Enable file watchers for real-time diagnostics
+  (setq lsp-modeline-diagnostics-mode :project ; Display diagnostics for the entire project
+        lsp-enable-symbol-highlighting t
+        lsp-diagnostics-provider :auto          ; Use the LSP server's diagnostics
+        lsp-enable-file-watchers t))            ; Enable file watchers for real-time diagnostics
+
+;; (after! lsp-ui
+;;   (setq lsp-ui-sideline-enable nil  ; no more useful than flycheck
+;;         lsp-ui-doc-enable nil))     ; redundant with K
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
@@ -100,6 +121,3 @@
    doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 16)
    )
   )
-
-;; Open doom emacs start in maximized window
-(add-to-list 'default-frame-alist '(fullscreen . maximized))
