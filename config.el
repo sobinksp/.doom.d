@@ -69,8 +69,6 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
-;; Global settings
-
 ;; ui
 (setq
  doom-theme 'doom-gruvbox
@@ -98,6 +96,8 @@
         lsp-diagnostics-provider :auto          ; Use the LSP server's diagnostics
         lsp-enable-file-watchers t))            ; Enable file watchers for real-time diagnostics
 
+;; disable semantic syntac highlight
+(setq ccls-sem-highlight-method nil)
 ;; (after! lsp-ui
 ;;   (setq lsp-ui-sideline-enable nil  ; no more useful than flycheck
 ;;         lsp-ui-doc-enable nil))     ; redundant with K
