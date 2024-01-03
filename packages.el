@@ -49,6 +49,7 @@
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;; (unpin! t)
 (package! prettier-js)
-(package! apheleia)
+(package! apheleia) ;; this is needed for formatter to work properly.
 (package! naysayer-theme)
-(package! hemisu-theme)
+(package! nordic-night-theme)
+(package! multi-term)
